@@ -1,0 +1,169 @@
+// 1. Змінні (Легко міняти дизайн)
+$brand-orange: #f04e23; // Фірмовий колір Black Ops
+$dark-bg: #0a0a0a;       // Темний фон
+$card-bg: #161616;       // Фон карток
+$text-white: #ffffff;
+$font-main: 'Teko', sans-serif; // Шрифт як у грі
+
+// 2. Скидання стилів
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $dark-bg;
+    color: $text-white;
+    font-family: $font-main;
+    font-size: 1.2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+aside{
+  div{
+    p{font-size: 1,5rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 40px;
+        text-transform: uppercase;
+      }
+    h2{font-size: 3rem;
+        line-height: 1;
+        color: $brand-orange;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+
+
+    }
+  }
+}
+.card {
+    // ... твої попередні стилі (background, padding і т.д.) ...
+
+    // Стилі для картинки
+    img {
+        width: 100%;           // Картинка розтягується на всю ширину картки
+        height: 200px;         // Фіксуємо висоту (щоб усі картки були рівні)
+        object-fit: cover;     // Картинка обрізається, а не сплющується
+        border-radius: 4px;    // Трохи заокруглені кути
+        margin-bottom: 15px;   // Відступ знизу до заголовка
+        border: 1px solid rgba(255, 255, 255, 0.1); // Тонка рамка
+    }
+
+    // ... далі йдуть .card-header, h3 і т.д.
+}
+
+// 3. Hero секція (Вкладеність)
+.hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://wallpapers.com/images/hd/call-of-duty-black-ops-6-logo-4k-wallpaper-p2l3q2k4n5m6o7p8.jpg'); // Можеш замінити посилання на свою картинку
+    background-size: cover;
+    background-position: center;
+
+    h1 {
+        font-size: 8rem;
+        line-height: 1;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+
+        .highlight {
+            color: $brand-orange;
+        }
+    }
+
+    p {
+        font-size: 2rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 40px;
+        text-transform: uppercase;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 15px 40px;
+        background-color: $brand-orange;
+        color: $text-white;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        border: 2px solid $brand-orange;
+        transition: 0.3s;
+
+        // SCSS фішка: & означає "батьківський елемент" (.btn)
+        &:hover {
+            background-color: transparent;
+            color: $brand-orange;
+            letter-spacing: 2px; // Ефект розтягування при наведенні
+        }
+    }
+}
+
+// 4. Секція зі зброєю
+.weapons {
+    padding: 80px 0;
+
+    h2 {
+        font-size: 4rem;
+        text-align: center;
+        margin-bottom: 50px;
+        color: $brand-orange;
+    }
+
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); // Адаптивна сітка
+        gap: 30px;
+    }
+
+    .card {
+        background-color: $card-bg;
+        padding: 30px;
+        border-left: 5px solid $brand-orange; // Помаранчева лінія зліва
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-10px); // Піднімається при наведенні
+            background-color: lighten($card-bg, 5%); // Трохи світлішає
+        }
+
+        .card-header {
+            color: grey;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-family: Arial, sans-serif; // Для звичайного тексту простіший шрифт
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .tier {
+            display: inline-block;
+            background: $brand-orange;
+            color: black;
+            padding: 5px 15px;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+    }
+}
